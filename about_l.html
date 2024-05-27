@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimaCast About Logged</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body style="background-color: #121212; color: #ffffff;">
+
+    <nav class="navbar navbar-expand-lg bg-light" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="climacast.webp" alt="ClimaCast" width="125" height="125" class="d-inline-block align-top">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="index.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="realtime.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Real-Time
+                            Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="hazardtracking.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Hazard
+                            Tracking</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="about_l.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">About</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link me-3" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                style="color: black; font-size: 35px; cursor: pointer;">
+                <i class="bi bi-bell-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                <li><a class="dropdown-item" href="notifications.html">See notifications</a></li>
+             
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="profileMenuLink" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="pfp.png" alt="Profile" class="rounded-circle"
+                    style="width: 50px; height: 50px; margin-left: 10px;"> 
+            </a>
+
+
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenuLink">
+                
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container text-center">
+            <h1 class="container mt-5 fw-bold fs-1">Welcome to ClimaCast!</h1>
+            <p class="fs-4">Your Personal Weather Forecast at a Glance</p>
+            <a href="#weatherCarousel" class="btn btn-light btn-lg scroll-to-section fw-bold mt-4">Get Started</a>
+        </div>
+
+
+
+
+    </header>
+    <section id="carouselSection" class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <div id="weatherCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="spring.png" class="d-block w-100" alt="Weather Image Spring">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="summer.jpg" class="d-block w-100" alt="Weather Image Summer">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="autumn.jpg" class="d-block w-100" alt="Weather Image Autumn">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="winter.jpg" class="d-block w-100" alt="Weather Image Winter">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#weatherCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#weatherCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ms-lg-5">
+                    <h2 class="fs-2 fw-bold">Discover a world where weather forecasts come alive</h2>
+                    <p class="fs-5">
+                        <span class="fw-bold">ClimaCast offers more than just forecasts</span>; it's your personal guide
+                        to the climate around you. From <span class="fw-bold">real-time weather updates</span> to <span
+                            class="fw-bold">advanced hazard tracking</span>, we provide all the information you need to
+                        plan your day, avoid bad weather, and stay safe. Experience weather forecasting in a way you
+                        never have before with ClimaCast.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="d-flex justify-content-center mt-4">
+        <a href="#realTimeWeather" class="btn btn-light fw-bold fs-4">Learn More</a>
+    </div>
+
+    <section id="realTimeWeather" class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="realtime.jpg" class="img-fluid border border-5 border-secondary" alt="Real-Time Weather">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold fs-2">Real-Time Weather</h2>
+                <p class="fs-4">
+                    <span class="fw-bold">Stay updated with the latest weather conditions</span> in your locale. Our
+                    real-time weather feature
+                    provides you with <span class="fw-bold">up-to-the-minute data</span> on temperature, precipitation,
+                    wind speed, and more,
+                    ensuring you're always prepared for the day ahead.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="d-flex justify-content-center mt-5">
+        <a href="#hazardTracking" class="btn btn-light fw-bold fs-4">Learn More</a>
+    </div>
+
+
+    <section id="hazardTracking" class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="stormtracking.png" class="img-fluid border border-5 border-secondary" alt="Storm Tracking">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold fs-2">Hazard Tracking</h2>
+                <p class="fs-4">
+                    <span class="fw-bold">Monitor the development and progress of hazards</span> with our advanced
+                    tracking tools. Our intuitive maps
+                    and detailed forecasts allow you to <span class="fw-bold">visualize storm paths</span>, understand
+                    potential impacts, and make
+                    informed decisions to <span class="fw-bold">protect yourself and your loved ones</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+
+
+
+
+    <section class="container my-5 text-center">
+        <h2 class="fw-bold fs-2">Use ClimaCast Today!</h2>
+        <p class="fs-5">Experience the full potential of personalized weather forecasting. Click on the Home button and
+            start exploring.
+        </p>
+        <a href="index.html" class="btn btn-light btn-lg fw-bold">Home</a>
+    </section>
+
+
+
+
+</body>
+
+</html>

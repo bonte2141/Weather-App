@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimaCast Notifications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body style="background-color: #121212; color: #ffffff;">
+
+    <nav class="navbar navbar-expand-lg bg-light" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="climacast.webp" alt="ClimaCast" width="125" height="125" class="d-inline-block align-top">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="index.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="realtime.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Real-Time
+                            Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="hazardtracking.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Hazard
+                            Tracking</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="about_l.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">About</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link me-3" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                style="color: black; font-size: 35px; cursor: pointer;">
+                <i class="bi bi-bell-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                <li><a class="dropdown-item" href="notifications.html">See notifications</a></li>
+                
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="profileMenuLink" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="pfp.png" alt="Profile" class="rounded-circle"
+                    style="width: 50px; height: 50px; margin-left: 10px;"> 
+            </a>
+
+
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenuLink">
+              
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <h2 class="text-center text-white mb-4 fw-bold">Notifications</h2>
+        <div class="list-group">
+   
+            <a href="#"
+                class="list-group-item list-group-item-action flex-column align-items-start bg-secondary text-white">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 fw-bold">Weather Alert for Your Area</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Severe thunderstorm warning issued for your area until 6 PM tonight.</p>
+                <small>Click for more details.</small>
+            </a>
+     
+            <a href="#"
+                class="list-group-item list-group-item-action flex-column align-items-start bg-secondary text-white">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 fw-bold">New Feature Update</h5>
+                    <small>5 days ago</small>
+                </div>
+                <p class="mb-1">Explore our new interactive maps feature.</p>
+                <small>See what's new.</small>
+            </a>
+          
+            <a href="#"
+                class="list-group-item list-group-item-action flex-column align-items-start bg-secondary text-white">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 fw-bold">Scheduled Maintenance</h5>
+                    <small>1 week ago</small>
+                </div>
+                <p class="mb-1">Our service will be temporarily unavailable during scheduled maintenance this Saturday.
+                </p>
+                <small>Read more.</small>
+            </a>
+       
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

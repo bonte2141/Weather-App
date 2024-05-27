@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimaCast Approval</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body style="background-color: #121212; color: #ffffff;">
+
+    <nav class="navbar navbar-expand-lg bg-light" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="main_admin.html">
+                <img src="climacast.webp" alt="ClimaCast" width="125" height="125" class="d-inline-block align-top">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="main_admin.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="realtime_admin.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Real-Time Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="hazardtracking_admin.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Hazard Tracking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about_admin.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="users.html" class="btn btn-dark fw-bold me-2" style="font-size: 23px;">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="approval.html" class="btn btn-dark fw-bold" style="font-size: 23px;">Approval</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link me-3" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-size: 35px; cursor: pointer;">
+                <i class="bi bi-bell-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                <li><a class="dropdown-item" href="notifications_admin.html">See notifications</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="profileMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="pfp.png" alt="Profile" class="rounded-circle" style="width: 50px; height: 50px; margin-left: 10px;">
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenuLink">
+                <li><a class="dropdown-item" href="profile_admin.html">Profile</a></li>
+                <li><a class="dropdown-item" href="settings_admin.html">Settings</a></li>
+                <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h1 class="text-center fw-bold text-light">Approval List</h1>
+        <table class="table table-dark table-hover" id="approvalTable">
+            <thead>
+                <tr>
+                    <th>Meteorologist Name</th>
+                    <th>Page Name</th>
+                    <th>Action Type</th>
+                    <th>Data Submitted</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchApprovalRequests();
+
+            function fetchApprovalRequests() {
+                fetch('view_requests.php')
+                    .then(response => response.json())
+                    .then(data => populateApprovalTable(data))
+                    .catch(error => console.error('Error fetching approval requests:', error));
+            }
+
+            function populateApprovalTable(data) {
+                const tableBody = document.querySelector('#approvalTable tbody');
+                tableBody.innerHTML = '';
+                data.forEach(item => {
+                    const row = `<tr>
+                        <td>${item.meteorologist_name}</td>
+                        <td>${item.page_name}</td>
+                        <td>${item.action_type}</td>
+                        <td>${formatData(item.data)}</td>
+                        <td>${item.status}</td>
+                        <td>
+                            <button class="btn btn-success btn-sm" onclick="approveRequest(${item.request_id})">Approve</button>
+                            <button class="btn btn-danger btn-sm" onclick="rejectRequest(${item.request_id})">Reject</button>
+                        </td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+
+            function formatData(data) {
+                const parsedData = JSON.parse(data);
+                return Object.entries(parsedData).map(([key, value]) => `${key}: ${value}`).join(', ');
+            }
+
+            window.approveRequest = function (requestId) {
+                if (confirm('Are you sure you want to approve this request?')) {
+                    const formData = new FormData();
+                    formData.append('request_id', requestId);
+                    fetch('approve_request.php', { method: 'POST', body: formData })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                throw new Error(data.error);
+                            }
+                            console.log(data.message);
+                            fetchApprovalRequests();
+                        })
+                        .catch(error => {
+                            console.error('Error approving request:', error);
+                            alert("Error approving request.");
+                        });
+                }
+            }
+
+            window.rejectRequest = function (requestId) {
+                if (confirm('Are you sure you want to reject this request?')) {
+                    const formData = new FormData();
+                    formData.append('request_id', requestId);
+                    fetch('reject_request.php', { method: 'POST', body: formData })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                throw new Error(data.error);
+                            }
+                            console.log(data.message);
+                            fetchApprovalRequests();
+                        })
+                        .catch(error => {
+                            console.error('Error rejecting request:', error);
+                            alert("Error rejecting request.");
+                        });
+                }
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

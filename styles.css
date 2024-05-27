@@ -1,0 +1,58 @@
+.short-description {
+    padding: 20px 0;
+    text-align: center; /* Center-align the text for better readability */
+}
+
+.short-description p {
+    font-size: 1.2rem; /* Adjust the font size as necessary */
+    max-width: 800px; /* Setting a max-width can improve readability on large screens */
+    margin: auto; /* This will center the paragraph within the container */
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+/* Adjust dropdown menu positioning */
+.dropdown-menu {
+    right: 0; /* Align the right edge of the dropdown with the right edge of its trigger */
+    left: auto; /* Overriding default left alignment */
+    margin-right: 5px; /* Give some space from the right edge of the viewport */
+}
+
+/* Style dropdown items */
+.dropdown-menu .dropdown-item {
+    font-size: 23px; /* Match the size you've been using */
+    font-weight: bold; /* Make text bold */
+    color: #ffffff; /* Set text color to white */
+    background-color: #121212; /* Set background color to match your navbar */
+}
+
+/* Change the background color of dropdown items on hover */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #333333; /* Slightly lighter shade for hover state */
+}
+
+/* Ensure dropdown menu aligns with the right side of its toggle element */
+.dropdown-menu-end {
+    right: 0;
+    left: auto;
+}
+
+/* Adjust dropdown positioning */
+.dropdown-menu {
+    margin-right: 15px; /* Increase if the dropdown is off-screen */
+}
+
+/* Style dropdown items */
+.dropdown-menu .dropdown-item {
+    font-size: 23px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #121212;
+}
+
+/* Change the background color of dropdown items on hover */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #333333;
+}
